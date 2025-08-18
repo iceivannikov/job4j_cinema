@@ -1,0 +1,1 @@
+TRUNCATE TABLE tickets, film_sessions, films, halls, genres, files RESTART IDENTITY CASCADE;
