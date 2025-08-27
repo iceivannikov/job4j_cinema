@@ -17,7 +17,6 @@ public class Sql2oFileRepository implements FileRepository {
 
     private final Sql2o sql2o;
 
-
     @Override
     public Optional<File> findById(Integer id) {
         try (Connection connection = sql2o.open()) {
@@ -30,18 +29,4 @@ public class Sql2oFileRepository implements FileRepository {
             return Optional.ofNullable(file);
         }
     }
-
-    @Override
-    public Optional<File> findByName(String name) {
-        try (Connection connection = sql2o.open()) {
-            Query query = connection.createQuery("SELECT * FROM files WHERE name = :name");
-
-            File file = query
-                    .addParameter("name", name)
-                    .executeAndFetchFirst(File.class);
-
-            return Optional.ofNullable(file);
-        }
-    }
-
 }

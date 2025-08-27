@@ -18,15 +18,6 @@ public class Sql2oGenreRepository implements GenreRepository {
     private final Sql2o sql2o;
 
     @Override
-    public List<Genre> findAll() {
-        try (Connection connection = sql2o.open()) {
-            Query query = connection.createQuery("SELECT * FROM genres");
-
-            return query.executeAndFetch(Genre.class);
-        }
-    }
-
-    @Override
     public Optional<Genre> findById(Integer id) {
         try (Connection connection = sql2o.open()) {
             Query query = connection.createQuery("SELECT * FROM genres WHERE id = :id");
