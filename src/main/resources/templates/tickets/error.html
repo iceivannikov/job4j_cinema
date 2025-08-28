@@ -1,0 +1,29 @@
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4>❌ Ошибка при покупке билета</h4>
+                </div>
+                <div class="card-body">
+                    <p th:text="${message}">Не удалось приобрести билет на заданное место.</p>
+                    <p>Вероятно оно уже занято. Перейдите на страницу бронирования билетов и попробуйте снова.</p>
+                    
+                    <div class="mt-4">
+                        <a href="/sessions" class="btn btn-primary">Назад к расписанию</a>
+                        <a href="/" class="btn btn-outline-secondary">На главную</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

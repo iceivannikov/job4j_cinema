@@ -1,0 +1,39 @@
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-4">
+    <h2>Кинотека</h2>
+
+    <div class="row">
+        <div th:each="film : ${films}" class="col-md-4 mb-4">
+        <div class="card">
+        <a th:href="@{'/films/' + ${film.id} + '/sessions'}">
+            <img th:src="${film.filePath}" class="card-img-top film-poster" alt="Постер фильма">
+        </a>
+        <div class="card-body">
+        <h5 class="card-title">
+        <a th:href="@{'/films/' + ${film.id} + '/sessions'}" class="text-decoration-none" th:text="${film.name}">Название фильма</a>
+        </h5>
+        <p class="card-text" th:text="${film.description}">Описание фильма</p>
+        <p class="text-muted">
+            <small>Жанр: <span th:text="${film.genre}"></span></small><br>
+                <small>Год: <span th:text="${film.year}"></span></small><br>
+                            <small>Длительность: <span th:text="${film.durationInMinutes}"></span> мин</small><br>
+                            <small>Возрастное ограничение: <span th:text="${film.minimalAge}"></span>+</small>
+                        </p>
+                        <a th:href="@{'/films/' + ${film.id} + '/sessions'}" class="btn btn-outline-primary w-100">Посмотреть сеансы</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:if="${#lists.isEmpty(films)}" class="text-center">
+        <h4>Фильмы не найдены</h4>
+        <p>В данный момент в кинотеке нет доступных фильмов.</p>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

@@ -8,4 +8,5 @@ import java.util.List;
 public interface FilmSessionService {
     List<FilmSessionDto> findAll();
     FilmSessionDetailDto findById(Integer id);
+    List<FilmSessionDto> findByFilmId(Integer filmId);
 }

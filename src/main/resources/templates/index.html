@@ -1,0 +1,43 @@
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Добро пожаловать в кинотеатр!</h1>
+        <p class="lead">Выберите фильм и купите билеты онлайн</p>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Кинотека</h5>
+                        <p class="card-text">Посмотрите все доступные фильмы</p>
+                        <a href="/films" class="btn btn-primary">Смотреть фильмы</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Расписание</h5>
+                        <p class="card-text">Выберите удобное время сеанса</p>
+                        <a href="/sessions" class="btn btn-primary">Расписание</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Аккаунт</h5>
+                        <p class="card-text">Войдите или зарегистрируйтесь</p>
+                        <a href="/users/login" class="btn btn-primary">Войти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

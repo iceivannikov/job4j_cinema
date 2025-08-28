@@ -1,0 +1,43 @@
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-4">
+    <h2>Расписание сеансов</h2>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>Фильм</th>
+                <th>Зал</th>
+                <th>Время начала</th>
+                <th>Время окончания</th>
+                <th>Цена</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="filmSession : ${sessions}">
+                <td th:text="${filmSession.filmName}">Название фильма</td>
+                <td th:text="${filmSession.hallName}">Зал</td>
+                <td th:text="${filmSession.startTime}">Начало</td>
+                <td th:text="${filmSession.endTime}">Конец</td>
+                <td th:text="${filmSession.price}">Цена</td>
+                <td>
+                    <a th:href="@{'/tickets/buy/' + ${filmSession.id}}" class="btn btn-primary btn-sm">Купить билет</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:if="${#lists.isEmpty(sessions)}" class="text-center">
+        <h4>Сеансы не найдены</h4>
+        <p>В данный момент нет доступных сеансов.</p>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

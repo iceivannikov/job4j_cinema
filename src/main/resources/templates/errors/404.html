@@ -1,0 +1,16 @@
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">404</h1>
+        <h2>Страница не найдена</h2>
+        <p class="lead" th:text="${message}">Запрашиваемая страница не существует.</p>
+        <a href="/" class="btn btn-primary">На главную</a>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

@@ -8,6 +8,7 @@ public record FilmSessionDto(
         String filmName,
         String filmDescription,
         String posterPath,
+        String hallName,
         LocalDateTime startTime,
         LocalDateTime endTime,
         Integer price

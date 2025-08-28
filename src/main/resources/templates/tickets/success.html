@@ -1,0 +1,34 @@
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h4>🎉 Билет успешно приобретен!</h4>
+                </div>
+                <div class="card-body">
+                    <h5>Вы успешно приобрели билет на место:</h5>
+                    <div class="alert alert-success">
+                        <p class="mb-1"><strong>Билет №</strong> <span th:text="${ticket.id}"></span></p>
+                        <p class="mb-1"><strong>Ряд:</strong> <span th:text="${ticket.rowNumber}"></span></p>
+                        <p class="mb-0"><strong>Место:</strong> <span th:text="${ticket.placeNumber}"></span></p>
+                    </div>
+                    <p class="text-muted">Сохраните эту информацию. Покажите билет на входе в кинотеатр.</p>
+                    
+                    <div class="mt-4">
+                        <a href="/sessions" class="btn btn-primary">Назад к расписанию</a>
+                        <a href="/" class="btn btn-outline-secondary">На главную</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

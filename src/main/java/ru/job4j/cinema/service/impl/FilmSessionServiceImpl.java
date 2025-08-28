@@ -35,13 +35,26 @@ public class FilmSessionServiceImpl implements FilmSessionService {
         return byId.map(this::mapToFilmSessionDetailDto).orElse(null);
     }
 
+    @Override
+    public List<FilmSessionDto> findByFilmId(Integer filmId) {
+        List<FilmSession> filmSessionList = filmSessionRepository.findByFilmId(filmId);
+        return filmSessionList.stream()
+                .map(this::mapToFilmSessionDto)
+                .toList();
+    }
+
     private FilmSessionDto mapToFilmSessionDto(FilmSession filmSession) {
         FilmDto filmDto = getFilm(filmSession);
+        
+        String hallName = hallService.findById(filmSession.getHallId())
+                .map(Hall::getName)
+                .orElse("Неизвестен");
         return new FilmSessionDto(
                 filmSession.getId(),
                 filmDto.name(),
                 filmDto.description(),
                 filmDto.filePath(),
+                hallName,
                 filmSession.getStartTime(),
                 filmSession.getEndTime(),
                 filmSession.getPrice()

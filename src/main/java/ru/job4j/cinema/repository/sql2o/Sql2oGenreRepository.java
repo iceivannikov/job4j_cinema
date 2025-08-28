@@ -8,7 +8,6 @@ import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.Genre;
 import ru.job4j.cinema.repository.GenreRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -29,5 +28,4 @@ public class Sql2oGenreRepository implements GenreRepository {
             return Optional.ofNullable(genre);
         }
     }
-
 }

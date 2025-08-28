@@ -1,0 +1,66 @@
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-4">
+    <h2>Покупка билета</h2>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Информация о сеансе</h5>
+                </div>
+                <div class="card-body">
+                    <h6 th:text="${sessionDetail.filmName}">Название фильма</h6>
+                    <p th:text="${sessionDetail.filmDescription}" class="text-muted">Описание фильма</p>
+                    <p><strong>Зал:</strong> <span th:text="${sessionDetail.hallName}"></span></p>
+                    <p><strong>Время:</strong> <span th:text="${sessionDetail.startTime}"></span> - <span th:text="${sessionDetail.endTime}"></span></p>
+                    <p><strong>Цена:</strong> <span th:text="${sessionDetail.price}"></span> руб.</p>
+                    <p><small class="text-muted">Возраст: <span th:text="${sessionDetail.filmMinimalAge}"></span>+ | Длительность: <span th:text="${sessionDetail.filmDurationInMinutes}"></span> мин</small></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Выбор места</h5>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/tickets/buy}" method="post">
+                        <input type="hidden" name="sessionId" th:value="${sessionDetail.id}">
+                        
+                        <div class="mb-3">
+                            <label for="rowNumber" class="form-label">Ряд</label>
+                            <select class="form-select" id="rowNumber" name="rowNumber" required>
+                                <option value="">Выберите ряд</option>
+                                <option th:each="i : ${#numbers.sequence(1, sessionDetail.hallRowCount)}" 
+                                th:value="${i}" th:text="${i}"></option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="placeNumber" class="form-label">Место</label>
+                            <select class="form-select" id="placeNumber" name="placeNumber" required>
+                                <option value="">Выберите место</option>
+                                <option th:each="i : ${#numbers.sequence(1, sessionDetail.hallPlaceCount)}" 
+                                th:value="${i}" th:text="${i}"></option>
+                            </select>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">Купить билет</button>
+                            <a href="/sessions" class="btn btn-outline-secondary">Отменить</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

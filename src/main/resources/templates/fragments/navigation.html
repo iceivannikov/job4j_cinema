@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">🎬 Кинотеатр</a>
+            <div class="navbar-nav me-auto">
+                <a class="nav-link" href="/films">Кинотека</a>
+                <a class="nav-link" href="/sessions">Расписание</a>
+            </div>
+            
+            <!-- Навигация пользователя -->
+            <div class="d-flex" th:if="${session.user == null}">
+                <a class="nav-link text-secondary me-3" th:href="@{/users/register}">Регистрация</a>
+                <a class="nav-link text-secondary" th:href="@{/users/login}">Войти</a>
+            </div>
+            <div class="d-flex" th:if="${session.user != null}">
+                <a class="nav-link text-secondary me-3" href="#" th:text="${session.user.fullName}">Пользователь</a>
+                <a class="nav-link text-secondary" th:href="@{/users/logout}">Выйти</a>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

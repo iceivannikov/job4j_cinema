@@ -9,4 +9,5 @@ public interface FilmSessionRepository {
 
     List<FilmSession> findAll();
     Optional<FilmSession> findById(Integer id);
+    List<FilmSession> findByFilmId(Integer filmId);
 }

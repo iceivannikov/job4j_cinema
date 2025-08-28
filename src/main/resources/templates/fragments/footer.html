@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <footer th:fragment="footer" class="bg-dark text-light mt-5 py-4">
+        <div class="container">
+            <div class="text-center">
+                <p>&copy; 2025 Кинотеатр. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div th:fragment="scripts">
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/js/cinema.js}"></script>
+    </div>
+</body>
+</html>

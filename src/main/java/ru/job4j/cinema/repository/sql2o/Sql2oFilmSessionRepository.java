@@ -41,4 +41,16 @@ public class Sql2oFilmSessionRepository implements FilmSessionRepository {
             return Optional.ofNullable(filmSession);
         }
     }
+
+    @Override
+    public List<FilmSession> findByFilmId(Integer filmId) {
+        try (Connection connection = sql2o.open()) {
+            Query query = connection.createQuery("SELECT * FROM film_sessions WHERE film_id = :filmId");
+
+            return query
+                    .addParameter("filmId", filmId)
+                    .setColumnMappings(FilmSession.COLUMN_MAPPING)
+                    .executeAndFetch(FilmSession.class);
+        }
+    }
 }
