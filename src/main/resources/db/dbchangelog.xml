@@ -7,27 +7,27 @@
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <include file="scripts/001_ddl_create_initial_schema.sql" relativeToChangelogFile="true"/>
 
-    <changeSet id="seed-truncate" author="you" context="seed" runAlways="true">
+    <changeSet id="seed-truncate" author="you" context="seed,test" runAlways="true">
         <sqlFile path="scripts/010_truncate_seed.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="seed-files" author="you" context="seed" runAlways="true">
+    <changeSet id="seed-files" author="you" context="seed,test" runAlways="true">
         <sqlFile path="scripts/020_seed_files.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="seed-genres" author="you" context="seed" runAlways="true">
+    <changeSet id="seed-genres" author="you" context="seed,test" runAlways="true">
         <sqlFile path="scripts/030_seed_genres.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="seed-halls" author="you" context="seed" runAlways="true">
+    <changeSet id="seed-halls" author="you" context="seed,test" runAlways="true">
         <sqlFile path="scripts/040_seed_halls.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="seed-films" author="you" context="seed" runAlways="true">
+    <changeSet id="seed-films" author="you" context="seed,test" runAlways="true">
         <sqlFile path="scripts/050_seed_films.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="seed-film-sessions" author="you" context="seed" runAlways="true">
+    <changeSet id="seed-film-sessions" author="you" context="seed,test" runAlways="true">
         <sqlFile path="scripts/060_seed_film_sessions.sql" relativeToChangelogFile="true"/>
     </changeSet>
 </databaseChangeLog>

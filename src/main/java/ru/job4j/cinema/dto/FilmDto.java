@@ -1,6 +1,6 @@
 package ru.job4j.cinema.dto;
 
-public record FilmDto (
+public record FilmDto(
         Integer id,
         String name,
         String description,
@@ -9,4 +9,4 @@ public record FilmDto (
         Integer durationInMinutes,
         String genre,
         String filePath
-) {}
+) { }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.cinema.model.Ticket;
+import ru.job4j.cinema.model.User;
 import ru.job4j.cinema.service.FilmSessionService;
 import ru.job4j.cinema.service.TicketService;
 
@@ -36,7 +37,7 @@ public class TicketController {
                            HttpSession httpSession, 
                            Model model) {
         
-        var user = (ru.job4j.cinema.model.User) httpSession.getAttribute("user");
+        var user = (User) httpSession.getAttribute("user");
         if (user == null) {
             model.addAttribute("message", "Необходимо авторизоваться для покупки билетов");
             return "redirect:/users/login";

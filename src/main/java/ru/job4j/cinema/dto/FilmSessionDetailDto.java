@@ -2,7 +2,7 @@ package ru.job4j.cinema.dto;
 
 import java.time.LocalDateTime;
 
-public record FilmSessionDetailDto (
+public record FilmSessionDetailDto(
         Integer id,
         LocalDateTime startTime,
         LocalDateTime endTime,
@@ -18,4 +18,4 @@ public record FilmSessionDetailDto (
         String hallDescription,
         Integer hallRowCount,
         Integer hallPlaceCount
-) {}
+) { }

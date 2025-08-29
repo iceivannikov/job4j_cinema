@@ -12,4 +12,4 @@ public record FilmSessionDto(
         LocalDateTime startTime,
         LocalDateTime endTime,
         Integer price
-) {}
+) { }
