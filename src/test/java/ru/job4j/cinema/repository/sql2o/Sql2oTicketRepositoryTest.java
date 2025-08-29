@@ -64,10 +64,10 @@ class Sql2oTicketRepositoryTest {
             connection.createQuery("DELETE FROM tickets").executeUpdate();
             connection.createQuery("DELETE FROM film_sessions").executeUpdate();
             connection.createQuery("DELETE FROM films").executeUpdate();
+            connection.createQuery("DELETE FROM users").executeUpdate();
+            connection.createQuery("DELETE FROM halls").executeUpdate();
             connection.createQuery("DELETE FROM genres").executeUpdate();
             connection.createQuery("DELETE FROM files").executeUpdate();
-            connection.createQuery("DELETE FROM halls").executeUpdate();
-            connection.createQuery("DELETE FROM users").executeUpdate();
         }
     }
 

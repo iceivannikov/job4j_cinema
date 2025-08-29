@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!-- Schema creation for tests -->
+    <include file="scripts/001_ddl_create_initial_schema.sql" relativeToChangelogFile="false"/>
+
+    <!-- Test data setup -->
+    <changeSet id="test-data-setup" author="test">
+        <sql>
+            <!-- Basic test data without full seed -->
+            INSERT INTO genres (id, name) VALUES (1, 'Action');
+            INSERT INTO genres (id, name) VALUES (2, 'Comedy');
+            
+            INSERT INTO halls (id, name, row_count, place_count, description) VALUES 
+            (1, 'Test Hall', 10, 10, 'Test hall for automated tests');
+            
+            INSERT INTO files (id, name, path) VALUES 
+            (1, 'test.jpg', '/test/path.jpg');
+        </sql>
+        <rollback>
+            DELETE FROM files WHERE id = 1;
+            DELETE FROM halls WHERE id = 1;
+            DELETE FROM genres WHERE id IN (1, 2);
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

@@ -64,11 +64,13 @@ class Sql2oFilmSessionRepositoryTest {
     @AfterEach
     void tearDown() {
         try (var connection = sql2o.open()) {
+            connection.createQuery("DELETE FROM tickets").executeUpdate();
             connection.createQuery("DELETE FROM film_sessions").executeUpdate();
             connection.createQuery("DELETE FROM films").executeUpdate();
+            connection.createQuery("DELETE FROM users").executeUpdate();
+            connection.createQuery("DELETE FROM halls").executeUpdate();
             connection.createQuery("DELETE FROM genres").executeUpdate();
             connection.createQuery("DELETE FROM files").executeUpdate();
-            connection.createQuery("DELETE FROM halls").executeUpdate();
         }
     }
 
