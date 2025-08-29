@@ -1,15 +1,6 @@
 <header th:include="fragments/header :: header"></header>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/">🎬 Кинотеатр</a>
-        <div class="navbar-nav">
-            <a class="nav-link" href="/films">Кинотека</a>
-            <a class="nav-link" href="/sessions">Расписание</a>
-            <a class="nav-link active" href="/users/register">Регистрация</a>
-        </div>
-    </div>
-</nav>
+<div th:replace="fragments/navigation :: navigation"></div>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -48,6 +39,7 @@
         </div>
     </div>
 </div>
-<footer th:include="fragments/footer :: footer"></footer>
+<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: scripts"></div>
 </body>
 </html>

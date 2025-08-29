@@ -33,7 +33,12 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage() {
+    public String getLoginPage(HttpSession session, Model model) {
+        var errorMessage = session.getAttribute("errormessage");
+        if (errorMessage != null) {
+            model.addAttribute("errormessage", errorMessage);
+            session.removeAttribute("errormessage");
+        }
         return "users/login";
     }
 
